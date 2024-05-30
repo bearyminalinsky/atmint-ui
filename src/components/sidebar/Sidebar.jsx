@@ -7,10 +7,14 @@ import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import CategoryIcon from '@mui/icons-material/Category';
+import { DarkModeContext } from "../../context/darkModeContext";
+import { useContext } from "react";
 
 const Sidebar = () => {
-  return (
-    
+  const { dispatch } = useContext(DarkModeContext);
+
+  return ( 
+
 <div className="sidebar">
 <div className="top">
   <Link to="/">
@@ -60,8 +64,8 @@ const Sidebar = () => {
   </ul>
 </div>
 <div className="bottom">
-  <div className="colorOption"></div>
-  <div className="colorOption"></div>
+  <div className="colorOption" onClick={() => dispatch({type: "LIGHT"})}></div>
+  <div className="colorOption" onClick={() => dispatch({type: "DARK"})}></div>
 </div>
 </div>
   );
