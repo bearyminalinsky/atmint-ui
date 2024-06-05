@@ -24,7 +24,7 @@ const RequireAuth = ({children}) =>
 
 const NotRequireAuth = ({children}) =>
   {
-    return currentUser ? <Navigate to ="/login" /> : children;
+    return currentUser ? <Navigate to ="/" /> : children;
   };
 
   return (
@@ -32,30 +32,30 @@ const NotRequireAuth = ({children}) =>
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />}></Route>
-            <Route path="login" element={<Login />}></Route>
+            <Route path="login" element={<NotRequireAuth><Login /></NotRequireAuth>}></Route>
+            <Route index element={<RequireAuth><Home /></RequireAuth>}></Route>
             <Route path="users">
-              <Route index element={<List />}></Route>
-              <Route path=":userId" element={<Single />}></Route>
+              <Route index element={<RequireAuth><List /></RequireAuth>}></Route>
+              <Route path=":userId" element={<RequireAuth><Single /></RequireAuth>}></Route>
               <Route
                 path="new"
-                element={<New inputs ={userInputs} title ="Add New User"/>}
+                element={<RequireAuth><New inputs ={userInputs} title ="Add New User"/></RequireAuth>}
                 />
             </Route>
             <Route path="products">
-              <Route index element={<List />}></Route>
-              <Route path=":productId" element={<Single />}></Route>
+              <Route index element={<RequireAuth><List /></RequireAuth>}></Route>
+              <Route path=":productId" element={<RequireAuth><Single /></RequireAuth>}></Route>
               <Route
                 path="new"
-                element={<New inputs ={productInputs} title ="Add New Product"/>}
+                element={<RequireAuth><New inputs ={productInputs} title ="Add New Product"/></RequireAuth>}
                 />
             </Route>
             <Route path="categories">
-              <Route index element={<Mylist />}></Route>
-              <Route path=":categoriesId" element={<Single />}></Route>
+              <Route index element={<RequireAuth><Mylist /></RequireAuth>}></Route>
+              <Route path=":categoriesId" element={<RequireAuth><Single /></RequireAuth>}></Route>
               <Route
                 path="new"
-                element={<New inputs ={categoriesInputs} title ="Add New Categories"/>}
+                element={<RequireAuth><New inputs ={categoriesInputs} title ="Add New Categories"/></RequireAuth>}
                 />
             </Route>
           </Route>
