@@ -11,7 +11,7 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { userColumns, productColumns } from "./datatablesource";
+import { userColumns, productColumns, categoriesColumns } from "./datatablesource";
 
 function App() {
 const { darkMode } = useContext(DarkModeContext);
@@ -53,7 +53,7 @@ const NotRequireAuth = ({children}) =>
             </Route>
             <Route path="categories">
               <Route index element={<RequireAuth><Mylist /></RequireAuth>}></Route>
-              <Route path=":categoriesId" element={<RequireAuth><Single /></RequireAuth>}></Route>
+              <Route path=":categoriesId" element={<RequireAuth><Single columns={categoriesColumns}/></RequireAuth>}></Route>
               <Route
                 path="new"
                 element={<RequireAuth><New inputs ={categoriesInputs} title ="Add New Categories"/></RequireAuth>}

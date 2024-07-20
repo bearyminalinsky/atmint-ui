@@ -13,6 +13,7 @@ const mylist = () => {
       <div className="widgets">
         <Widget type="user"/>
         <Widget type="order"/>
+        <Widget type="earning"/>
       </div>
       <Mydatatable />
       </div>

@@ -22,11 +22,23 @@ describe('template spec', () => {
     cy.get('div.sidebar')
       .should('be.visible') 
     
-    cy.get('[data-testid="users"]').click()
+    cy.get('[data-testid="categories"]').click()
     
-    cy.url().should('include', '/users')
+    cy.url().should('include', '/categories')
     
-    cy.get('div.datatableTitle').contains('USERS')
+    cy.get('div.mydatatableTitle').contains('CATEGORIES')
+
+    cy.get('[data-testid="addNew"]').click()
+
+    cy.get('div.new')
+      .should('be.visible')
+
+    cy.get('input#title')
+      .should('be.visible')
+      .should('have.attr', 'placeholder', 'Cookie Run')
+      .type('Appetizer').should('have.value', 'Appetizer')
+
+      cy.get('[data-testid="submit"]').click()
 
   })
 })

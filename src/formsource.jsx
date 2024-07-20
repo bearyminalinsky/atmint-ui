@@ -81,29 +81,5 @@ export const categoriesInputs = [
     label: "Title",
     type: "text",
     placeholder: "Cookie Run",
-  },
-  {
-    id: "description",
-    label: "Description",
-    type: "text",
-    placeholder: "Description",
-  },
-  {
-    id: "category",
-    label: "Category",
-    type: "text",
-    placeholder: "Cookie",
-  },
-  {
-    id: "price",
-    label: "Price",
-    type: "text",
-    placeholder: "100",
-  },
-  {
-    id: "stock",
-    label: "Stock",
-    type: "text",
-    placeholder: "in stock",
-  },
+  }
 ];

@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
 import List from "../../components/datatable/Datatable";
 import Datatable from "../../components/datatable/Datatable";
+import Mydatatable from "../../components/mydatatable/Mydatatable";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
@@ -28,7 +29,10 @@ const Single = ({columns}) => {
             break; 
           case "products":
             setData({...docSnapData, detailName : docSnapData.title}); 
-            break; 
+            break;
+            case "categories":
+              setData({...docSnapData, detailName : docSnapData.title}); 
+              break;
           default: 
             break;
         } 
